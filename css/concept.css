@@ -1,0 +1,372 @@
+@charset "UTF-8";
+
+/* ==================================================
+   1. メインビジュアル（下層ヘッダーエリア）
+   ================================================== */
+.mainvisual {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.mainvisual .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.mainvisual .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 画像の暗めフィルター overlay */
+.mainvisual .img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(14, 25, 75, 0.55);
+  z-index: 2;
+}
+
+.mainvisual .text {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.mainvisual h1 {
+  font-size: 2.8rem;
+  color: var(--color-main, #ffd700);
+  letter-spacing: 0.1em;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+}
+
+/* ==================================================
+   2. 導入メッセージエリア
+   ================================================== */
+.concept-intro {
+  background-color: var(--bg-base, #1f3187);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.concept-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  line-height: 2.2;
+  color: var(--text-body, #fff8dc);
+  letter-spacing: 0.05em;
+}
+
+/* ==================================================
+   3. 各こだわりセクション共通設定
+   ================================================== */
+.concept-block {
+  background-color: var(--bg-base, #1f3187);
+  padding: 60px 20px;
+}
+
+/* 黄色のセクションタイトルとオレンジの下線 */
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--color-main, #ffd700);
+  margin-bottom: 50px;
+  letter-spacing: 0.08em;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: var(--accent-orange, #e67e22);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* Flexboxによる左右配置レイアウト */
+.concept-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* こだわり2用の左右反転レイアウト */
+.concept-content.reverse {
+  flex-direction: row;
+}
+
+/* テキスト＆画像エリアの幅調整 */
+.concept-img,
+.concept-desc {
+  flex: 1;
+}
+
+.concept-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-main, #ffd700);
+  display: block;
+}
+
+.concept-desc p {
+  font-size: 1.05rem;
+  line-height: 2.1;
+  color: var(--text-body, #fff8dc);
+  letter-spacing: 0.05em;
+}
+
+/* こだわり2：右側の縦並び2枚画像 */
+.concept-img-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.concept-img-group img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--color-main, #ffd700);
+  display: block;
+}
+
+/* ==================================================
+   4. こだわり3（中央配置レイアウト）
+   ================================================== */
+.center-layout {
+  text-align: center;
+}
+
+.concept-main-img {
+  max-width: 550px;
+  margin: 0 auto 30px;
+}
+
+.concept-main-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.center-text p {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: left;
+  display: inline-block;
+  font-size: 1.05rem;
+  line-height: 2.1;
+  color: var(--text-body, #fff8dc);
+}
+
+.concept-block .btn-wrap {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+/* ==================================================
+   レスポンシブ対応（スマホ表示時：iPhone 16 430px以下最適化）
+   ================================================== */
+@media (max-width: 430px) {
+  .mainvisual {
+    height: 35vh;
+    min-height: 250px;
+  }
+
+  .mainvisual h1 {
+    font-size: 1.8rem;
+  }
+
+  .concept-intro {
+    padding: 40px 16px;
+  }
+
+  .intro-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .concept-block {
+    padding: 35px 16px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+
+  .concept-content,
+  .concept-content.reverse {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .concept-desc p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .concept-img-group {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .concept-img-group img {
+    height: 180px;
+  }
+
+  .center-text p {
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .concept-block .btn-wrap {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
+/* ==================================================
+   フッター専用 レスポンシブ対応 (スマホ表示最適化)
+   ================================================== */
+@media (max-width: 768px) {
+  footer {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-color: #0e194b;
+  }
+
+  .sns-links {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 10;
+  }
+
+  .sns-links .sns-icon {
+    width: 45px;
+    height: auto;
+  }
+
+  .footer-brand {
+    text-align: center;
+    padding: 0 20px 24px;
+    margin-top: 10px;
+  }
+
+  .footer-brand img {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  .footer-store-name {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  .location-map {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 12px; /* マップの角を丸くする */
+    overflow: hidden;    /* はみ出た部分を綺麗に切り取る */
+  }
+
+  .location-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .info-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .info-address {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+
+  .footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-menu li {
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  .footer-bottom {
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .footer-bottom .page-top-btn {
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
